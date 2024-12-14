@@ -1,16 +1,11 @@
 import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const RecipePage = () => {
     return (
-      <div className="bg-gradient-to-br from-light-beige via-white to-golden-yellow min-h-screen">
+      <div className="bg-gradient-to-r  from-slate-400 to-white  via-white min-h-screen">
         {/* Header Section */}
-        <header className="bg-gradient-to-r from-tandoori-red to-burnt-orange text-white py-6 text-center shadow-lg">
-          <h1 className="text-4xl font-extrabold tracking-wide animate-fade-in">
-            TandooriBot Recipes
-          </h1>
-          <p className="text-md mt-2 italic">Crafting flavors, one recipe at a time!</p>
-        </header>
-  
+       <Header/>
         {/* Main Content */}
         <main className="mt-8 p-6">
           {/* Recipe Generator Section */}

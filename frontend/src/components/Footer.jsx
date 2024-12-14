@@ -6,10 +6,10 @@ const Footer = () => {
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Column 1: Logo */}
         <div>
-          <h1 className="text-deep-purple text-4xl font-extrabold transform hover:scale-105 transition-transform duration-300 ">
+          <h1 className="text-tandoori-red text-4xl font-extrabold transform hover:scale-105 transition-transform duration-300 ">
             TandooriBOT
           </h1>
-          <p className="mt-4 text-sm text-deep-purple ">
+          <p className="mt-4 text-sm text-white ">
             Your AI kitchen assistant: Ingredients in, recipes out!
           </p>
         </div>
