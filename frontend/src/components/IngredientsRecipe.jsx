@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import botDp from "../assets/logodp.png"; // Replace with your bot's image path
+import botDp from "../assets/logodp.png"; 
 
 const IngredientsRecipe = ({ placeholder }) => {
   const [messages, setMessages] = useState([]);
@@ -29,12 +29,12 @@ const IngredientsRecipe = ({ placeholder }) => {
         {messages.map((message, index) => (
           <div key={index} className={`mb-4 flex ${message.user ? "justify-end" : "justify-start"}`}>
             <div className="flex items-center">
-              {/* Only show DP for bot's messages */}
+              
               {!message.user && (
                 <img
-                  src={botDp} // Display the bot's DP for bot messages
+                  src={botDp} 
                   alt="Bot Profile"
-                  className="w-10 h-10 rounded-full mr-3" // Adjust the size and position
+                  className="w-10 h-10 rounded-full mr-3" 
                 />
               )}
               <div
