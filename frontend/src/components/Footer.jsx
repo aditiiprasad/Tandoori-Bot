@@ -17,7 +17,7 @@ const Footer = () => {
         {/* Column 2: About the Maker */}
         <div>
           <h2 className="text-tandoori-red text-xl font-semibold">
-            About the Maker
+            About the Developer
           </h2>
           <p className="mt-2 text-base ">
             Hi, I'm Aditi, a passionate web developer and tech enthusiast,
@@ -102,7 +102,7 @@ const Footer = () => {
                 href="/ingredients"
                 className="hover:text-burnt-orange hover:translate-x-1 transition-transform duration-300"
               >
-                AI Tells You What to Make Based on Ingredients
+                Cook From Stock
               </a>
             </li>
             <li>
@@ -110,7 +110,7 @@ const Footer = () => {
                 href="/random-recipe"
                 className="hover:text-burnt-orange hover:translate-x-1 transition-transform duration-300"
               >
-                Random Recipe For You
+                Khane mei kya banau?
               </a>
             </li>
             <li>
@@ -118,7 +118,7 @@ const Footer = () => {
                 href="/underdogs-restaurants"
                 className="hover:text-burnt-orange hover:translate-x-1 transition-transform duration-300"
               >
-                Underdogs of the Restaurants
+               Random Dhaba
               </a>
             </li>
           </ul>

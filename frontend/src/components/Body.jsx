@@ -1,29 +1,29 @@
 import React, { useState } from "react";
-import IngredientsRecipe from "./IngredientsRecipe";  
-import RandomRecipe from "./RandomRecipe";  
+import IngredientsRecipe from "./IngredientsRecipe";
+import RandomRecipe from "./RandomRecipe";
 
 const Body = () => {
-  const [activeTab, setActiveTab] = useState("random"); 
+  const [activeTab, setActiveTab] = useState("random");
 
   return (
     <div className="container mx-auto mt-8 px-6">
       {/* Tabs Section */}
       <div className="flex justify-center mb-6">
         <button
-          className={`px-6 py-3 font-semibold text-lg rounded-t-md transition-all ${
+          className={`px-8 py-4 text-xl font-bold rounded-full transition-all ${
             activeTab === "ingredients"
-              ? "bg-tandoori-red text-white shadow-lg"
-              : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+              ? "bg-deep-purple text-white shadow-2xl transform hover:scale-105"
+              : "text-white bg-transparent border-2 border-white hover:bg-deep-purple hover:border-deep-purple focus:bg-deep-purple focus:border-deep-purple"
           }`}
           onClick={() => setActiveTab("ingredients")}
         >
           Recipe by Ingredients
         </button>
         <button
-          className={`ml-4 px-6 py-3 font-semibold text-lg rounded-t-md transition-all ${
+          className={`ml-4 px-8 py-4  text-xl font-bold rounded-full transition-all ${
             activeTab === "random"
-              ? "bg-tandoori-red text-white shadow-lg"
-              : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+              ? "bg-deep-purple text-white shadow-2xl transform hover:scale-105"
+              : "text-white bg-transparent border-2 border-white hover:bg-deep-purple hover:border-deep-purple focus:bg-deep-purple focus:border-deep-purple"
           }`}
           onClick={() => setActiveTab("random")}
         >
@@ -32,16 +32,12 @@ const Body = () => {
       </div>
 
       {/* Content Section */}
-      <div className="bg-white rounded-md shadow-md p-6">
+      <div className="bg-gradient-to-r from-red-600 via-tandoori-red to-burnt-orange rounded-md shadow-md mb-5 p-6">
         {activeTab === "ingredients" && (
-          <IngredientsRecipe
-            placeholder="Type ingredients, e.g., chicken, rice, spices..."
-          />
+          <IngredientsRecipe placeholder="Type ingredients, e.g., chicken, rice, spices..." />
         )}
         {activeTab === "random" && (
-          <RandomRecipe
-            placeholder="Type 'Surprise me!' or something fun..."
-          />
+          <RandomRecipe placeholder="Type 'Surprise me!' or something fun..." />
         )}
       </div>
     </div>
