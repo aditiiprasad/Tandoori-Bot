@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-// Importing images and logo from the assets folder
+
 import image1 from "../assets/bg.jpeg";
 import image2 from "../assets/bg2.webp";
 import image3 from "../assets/bg3.webp";
 import image4 from "../assets/bg4.webp";
-import logo from "../assets/logo.png"; // Assuming you have a logo in the assets folder
+import logo from "../assets/logo.png"; 
 
 const HomePageHeader = () => {
   const messages = [
@@ -50,7 +50,7 @@ const HomePageHeader = () => {
   useEffect(() => {
     const backgroundEffect = setInterval(() => {
       setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
-    }, 4000); // Change background every 4 seconds
+    }, 4000); 
 
     return () => clearInterval(backgroundEffect);
   }, []);
@@ -83,7 +83,7 @@ const HomePageHeader = () => {
         <img
           src={logo}
           alt="TandooriBot Logo"
-          className="w-32 h-32 mb-6 animate-bounce" // Adjust size and add animation
+          className="w-32 h-32 mb-6 animate-bounce" 
         />
         <div className="text-xl font-medium text-white mt-4">{currentMessage}</div>
         <h4 className="text-2xl font-extrabold mb-4 text-white border-2 border-white rounded-lg px-4 py-2">

@@ -4,7 +4,7 @@ import image1 from "../assets/ingri.webp";
 import image2 from "../assets/random.jpg";
 import image3 from "../assets/dhanba.jpg";
 import image4 from "../assets/bg4.webp";
-import logo from "../assets/logo.png"; 
+
 
 const data = [
   {

@@ -8,15 +8,15 @@ const IngredientsRecipe = ({ placeholder }) => {
   const handleSendMessage = () => {
     if (input.trim()) {
       setMessages([...messages, { user: true, text: input }]);
-      setInput(""); // Clear input field
+      setInput(""); 
 
-      // Simulate bot response
+    
       setTimeout(() => {
         setMessages((prevMessages) => [
           ...prevMessages,
           { user: false, text: `Launching Soon...` },
         ]);
-      }, 1000); // Simulate response delay
+      }, 1000); 
     }
   };
 

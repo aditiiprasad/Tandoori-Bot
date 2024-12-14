@@ -1,8 +1,8 @@
 // HomeBody.jsx
 
 import React from "react";
-import Card from "../components/Card"; // Import the Card component
-import data from "../data/data"; // Import card data
+import Card from "../components/Card"; 
+import data from "../data/data"; 
 
 const HomeBody = () => {
   return (

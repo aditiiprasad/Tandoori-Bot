@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import IngredientsRecipe from "./IngredientsRecipe";  // Import the IngredientsRecipe component
-import RandomRecipe from "./RandomRecipe";  // Import the RandomRecipe component
+import IngredientsRecipe from "./IngredientsRecipe";  
+import RandomRecipe from "./RandomRecipe";  
 
 const Body = () => {
-  const [activeTab, setActiveTab] = useState("random"); // State to handle active tab
+  const [activeTab, setActiveTab] = useState("random"); 
 
   return (
     <div className="container mx-auto mt-8 px-6">

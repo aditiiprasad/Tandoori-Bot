@@ -1,9 +1,9 @@
 import React from "react";
 
-import { useNavigate } from "react-router-dom"; // If you're using react-router v6.x
+import { useNavigate } from "react-router-dom"; 
 
 const Card = ({ image, name, description }) => {
-  const navigate = useNavigate(); // For react-router v6.x
+  const navigate = useNavigate(); 
   
   const handleClick = () => {
     navigate("/recipe");
