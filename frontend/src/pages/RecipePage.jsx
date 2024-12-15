@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Body from "../components/Body";
-import backgroundImage from "../assets/bg.jpeg"; 
+import backgroundImage from "../assets/recbg.jpeg"; 
 
 const RecipePage = () => {
   return (

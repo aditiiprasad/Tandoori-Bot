@@ -9,7 +9,7 @@ const data = [
     name: "Cook From Stock",
     description:
       "Turn your leftover ingredients into culinary masterpieces! Simply tell the bot what's in your fridge, and it will whip up personalized recipes tailored to your dietary preferences. No ingredient goes to waste—deliciousness awaits!",
-    status: "launching-soon", // Service is ready
+    status: "launching-soon", // Service is not ready
   },
   {
     image: image2,

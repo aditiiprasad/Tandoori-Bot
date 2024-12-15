@@ -91,7 +91,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Column 4: Quick Links */}
+        {/* Column 4: Quick Links */} 
         <div>
           <h2 className="text-tandoori-red text-xl font-semibold">
             Quick Links
@@ -99,7 +99,7 @@ const Footer = () => {
           <ul className="mt-2 space-y-2 text-base">
             <li>
               <a
-                href="/ingredients"
+                href="/recipe"
                 className="hover:text-burnt-orange hover:translate-x-1 transition-transform duration-300"
               >
                 Cook From Stock
@@ -107,7 +107,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/random-recipe"
+                href="/recipe"
                 className="hover:text-burnt-orange hover:translate-x-1 transition-transform duration-300"
               >
                 Khane mei kya banau?
@@ -115,7 +115,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/underdogs-restaurants"
+                href="/"
                 className="hover:text-burnt-orange hover:translate-x-1 transition-transform duration-300"
               >
                Random Dhaba

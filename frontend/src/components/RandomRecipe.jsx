@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { generateRecipe, generateAnswer } from "../lib/gemini"; // Import the generateAnswer function
 import botDp from '../assets/logodp.png';
 import ReactMarkdown from 'react-markdown'; // Import react-markdown for Markdown rendering
-import chatBackground from '../assets/bg2.webp';
+import chatBackground from '../assets/chatbg.jpeg';
 
 
 const RandomRecipe = ({ placeholder }) => {
@@ -86,7 +86,7 @@ const RandomRecipe = ({ placeholder }) => {
       <div className="flex justify-center mt-4">
         <button
           onClick={handleGenerateRecipe}
-          className="bg-deep-purple text-white text-2xl font-bold px-4 py-2 rounded-full hover:bg-light-purple transition"
+          className="bg-deep-purple text-white text-2xl font-bold px-4 py-2 rounded-full hover:bg-violet-950 transition"
           disabled={loading}
         >
           {loading ? "Loading..." : "Generate Recipe"}
@@ -94,7 +94,7 @@ const RandomRecipe = ({ placeholder }) => {
       </div>
 
       <div
-  className="mt-4 h-80 overflow-y-auto rounded-md p-4 shadow-inner"
+  className="mt-4 h-screen overflow-y-auto rounded-md p-4 shadow-inner"
   style={{
     backgroundImage: `url(${chatBackground})`,
     backgroundSize: 'cover',
@@ -115,7 +115,7 @@ const RandomRecipe = ({ placeholder }) => {
                 />
               )}
               <div
-                className={`max-w-xs p-3 rounded-lg ${message.user ? "bg-light-beige text-black" : "bg-deep-purple text-white"}`}
+                className={`max-w-xs p-3 rounded-lg ${message.user ? "bg-light-beige text-black" : "bg-deep-purple bg-opacity-70 text-white"}`}
               >
                 <ReactMarkdown>{message.text}</ReactMarkdown>  {/* Render Markdown */}
               </div>
@@ -127,7 +127,7 @@ const RandomRecipe = ({ placeholder }) => {
       <div className="mt-4 flex">
       <input
   type="text"
-  placeholder={placeholder}
+  placeholder=" Chat with the bot , Modify dish tailored to your preferences – e.g., gluten-free, vegetarian alternative.."
   value={input}
   onChange={(e) => setInput(e.target.value)}
   className="flex-1 bg-gradient-to-br from-light-beige to-orange-200 rounded-full p-3 focus:outline-none focus:ring-2 mr-2 focus:ring-deep-purple placeholder-deep-purple"

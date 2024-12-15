@@ -6,9 +6,9 @@ const Card = ({ image, name, description, status }) => {
 
   const handleClick = () => {
     if (status === "Explore") {
-      navigate("/recipe"); // Only navigate if the service is available
+      navigate("/recipe"); 
     } else {
-      alert("This service is launching soon!"); // Notify the user
+      alert("This service is launching soon!"); 
     }
   };
 
@@ -18,16 +18,24 @@ const Card = ({ image, name, description, status }) => {
       <div className="p-4">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-xl font-semibold text-gray-800">{name}</h3>
-          <span className="bg-deep-purple text-white text-sm font-semibold rounded-full px-2 py-1">
-            {status === "available" ? "Uses AI" : "Uses AI"}
-          </span>
+          <span
+         className="bg-gradient-to-br from-deep-purple to-pink-900 text-white text-base font-semibold rounded-full px-2 py-1"
+         style={{
+         boxShadow: "2px 2px 6px rgba(0, 0, 0, 0.7), -2px -2px 6px rgba(255, 255, 255, 0.3)",
+    
+        
+           }}
+          >
+         {status === "available" ? "Uses AI" : "Uses AI"}
+         </span>
+
         </div>
         <p className="text-gray-600 mb-4">{description}</p>
         <button
           onClick={handleClick}
-          className={`text-xl font-bold text-center rounded-full py-2 px-3 w-full ${
+          className={`text-xl font-bold text-center rounded-full py-2 px-3 w-full  ${
             status === "Explore"
-              ? "bg-olive-green text-white hover:bg-light-green"
+              ? "bg-olive-green text-white hover:bg-golden-yellow"
               : "bg-gray-400 text-gray-200 cursor-not-allowed"
           }`}
           disabled={status !== "Explore"} // Disable button if not available

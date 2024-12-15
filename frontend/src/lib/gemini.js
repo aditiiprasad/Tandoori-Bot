@@ -1,5 +1,6 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
+
 const genAI = new GoogleGenerativeAI('AIzaSyDvNG5SNBYzEQiwdqb60J91cSFSNc-IG0Q');
 const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
@@ -7,12 +8,11 @@ const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 export const generateRecipe = async () => {
   try {
     const prompt = `
-   Generate a completely **random** and **creative Indian recipe** in Markdown format.  
-The recipe should include the following sections:
+   Generate a completely **random** and **Indian recipe** in Markdown format.  
+   The recipe should include the following sections:
 - **Title**: The name of the dish (e.g., Butter Chicken, Chole Bhature, Biryani, etc.)
-- **Ingredients**: List the ingredients in a bullet-point format.
-- **Instructions**: Provide step-by-step instructions in a numbered list.
-- A short **description**: A few lines describing the dish's flavor, origin, and what makes it special.
+- **Ingredients**: List the ingredients in a use -.
+- **Instructions**: Provide step-by-step instructions with step 1 ,step 2 etc , steps also in bold.
 
 The dish should be **Indian** or **commonly available in India** with a variety of ingredients and cooking styles. It should reflect **regional diversity** (North Indian, South Indian, Punjabi, Gujarati, Bengali, etc.) with different preparation methods, flavors, and spices.
 
@@ -20,9 +20,9 @@ Please ensure that the following elements are included:
 - **Bold headings** for the title, ingredients, instructions, and description.
 - Use - for the ingredient list and other lists
 - **Dish name** should be simplified or common (e.g., Butter Chicken, Chole Bhature, Aloo Gobi).
-- Make sure the recipe is **unique and creative**, varying in cuisine and style each time.
+- Make sure the recipe is **unique**, varying in cuisine and style each time.
 
-Here is a list of famous Indian dishes you can draw inspiration from:
+Here is a list of famous Indian dishes to choose from , should be complete meal-
 - **Butter Chicken**
 - **Chole Bhature**
 - **Biryani**
@@ -79,7 +79,7 @@ Here is a list of famous Indian dishes you can draw inspiration from:
 - **Kadhi**
 - **Litti Chokha**
 
-Please generate a recipe based on one of these dishes or any other **Indian dish**. Make the recipe unique and varied, showing creativity with spices, methods, and flavors. 
+Please generate a recipe based on one of these dishes or any other **Indian dish**.  
 
 Example output:
 # **Butter Chicken**
@@ -93,14 +93,12 @@ Example output:
 - Salt to taste
 
 ## **Instructions**:
-1. Marinate the chicken with yogurt and spices.
-2. Cook the chicken in a pan with butter until browned.
-3. Add garlic and tomato puree, and cook until fragrant.
-4. Stir in cream and garam masala, and simmer.
-5. Serve with naan or rice.
+Step 1. Marinate the chicken with yogurt and spices.
+Step 2. Cook the chicken in a pan with butter until browned.
+Step 3. Add garlic and tomato puree, and cook until fragrant.
+Step 4. Stir in cream and garam masala, and simmer.
+Step 5. Serve with naan or rice.
 
-## **Description**:
-Butter Chicken is a rich, creamy, and flavorful dish from Punjab, famous for its aromatic spices and creamy texture. It pairs perfectly with naan or rice.
 
     `;
 
