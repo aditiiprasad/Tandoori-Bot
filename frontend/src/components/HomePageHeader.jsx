@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import image1 from "../assets/bg.jpeg";
 import image2 from "../assets/bg2.webp";
@@ -7,6 +8,8 @@ import image4 from "../assets/bg4.webp";
 import logo from "../assets/logo.png";
 
 const HomePageHeader = () => {
+  const navigate = useNavigate();
+
   const messages = [
     "Tell me your ingredients, and I'll spice up the recipe!",
     "From pantry to plate—your personalized recipe bot.",
@@ -27,6 +30,7 @@ const HomePageHeader = () => {
   const [charIndex, setCharIndex] = useState(0);
   const [backgroundIndex, setBackgroundIndex] = useState(0);
 
+  // Typewriter Effect for Messages
   useEffect(() => {
     const message = messages[index];
     const typeWriterEffect = setInterval(() => {
@@ -46,6 +50,7 @@ const HomePageHeader = () => {
     return () => clearInterval(typeWriterEffect);
   }, [charIndex, index, messages]);
 
+  // Background Transition Effect
   useEffect(() => {
     const backgroundEffect = setInterval(() => {
       setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
@@ -67,51 +72,45 @@ const HomePageHeader = () => {
 
         {/* Right Side - Navigation */}
         <div className="flex gap-6 items-center">
-         {/* Services Dropdown */}
-<div className="relative group">
-  <button className="hover:underline focus:outline-none font-bold">
-    Services
-  </button>
-  <div className="absolute top-full left-0 bg-white text-black shadow-md rounded-md mt-2 hidden group-hover:block group-focus:block w-64">
-    <ul>
-      <li className="px-4 py-3 flex justify-between items-center hover:bg-gray-200 cursor-pointer">
-        <a
-          href="/recipe" // Link for Cook From Stock
-          className="flex justify-between items-center w-full"
-        >
-          <span>Cook From Stock</span>
-          <span className="bg-gray-500 text-white text-xs font-semibold px-2 py-1 rounded-md">
-            Unavailable
-          </span>
-        </a>
-      </li>
-      <li className="px-4 py-3 flex justify-between items-center hover:bg-gray-200 cursor-pointer">
-        <a
-          href="/recipe" // Link for Random Dish
-          className="flex justify-between items-center w-full"
-        >
-          <span>Random Dish</span>
-          <span className="bg-olive-green text-white text-xs font-semibold px-2 py-1 rounded-md">
-            Available
-          </span>
-        </a>
-      </li>
-      <li className="px-4 py-3 flex justify-between items-center hover:bg-gray-200 cursor-pointer">
-        <a
-          href="/random-restaurant" // Link for Random Restaurant
-          className="flex justify-between items-center w-full"
-        >
-          <span>Random Restaurant</span>
-          <span className="bg-gray-500 text-white text-xs font-semibold px-2 py-1 rounded-md">
-            Unavailable
-          </span>
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+          {/* Services Dropdown */}
+          <div className="relative group">
+            <button className="hover:underline focus:outline-none font-bold">
+              Services
+            </button>
+            <div className="absolute top-full left-0 bg-white text-black shadow-md rounded-md mt-2 hidden group-hover:block group-focus:block w-64">
+              <ul>
+                <li
+                  className="px-4 py-3 flex justify-between items-center hover:bg-gray-200 cursor-pointer"
+                  onClick={() => navigate("/recipe")}
+                >
+                  <span>Cook From Stock</span>
+                  <span className="bg-gray-500 text-white text-xs font-semibold px-2 py-1 rounded-md">
+                    Unavailable
+                  </span>
+                </li>
+                <li
+                  className="px-4 py-3 flex justify-between items-center hover:bg-gray-200 cursor-pointer"
+                  onClick={() => navigate("/recipe")}
+                >
+                  <span>Random Dish</span>
+                  <span className="bg-olive-green text-white text-xs font-semibold px-2 py-1 rounded-md">
+                    Available
+                  </span>
+                </li>
+                <li
+                  className="px-4 py-3 flex justify-between items-center hover:bg-gray-200 cursor-pointer"
+                  onClick={() => navigate("/recipe")}
+                >
+                  <span>Random Restaurant</span>
+                  <span className="bg-gray-500 text-white text-xs font-semibold px-2 py-1 rounded-md">
+                    Unavailable
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-          {/* Socials Dropdown */}
+          {/* About the Developer Dropdown */}
           <div className="relative group">
             <button className="hover:underline focus:outline-none font-bold">
               About the Developer
@@ -119,22 +118,38 @@ const HomePageHeader = () => {
             <div className="absolute top-full left-0 bg-white text-black shadow-md rounded-md mt-2 hidden group-hover:block group-focus:block">
               <ul>
                 <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                  <a href="https://www.linkedin.com/in/aditiiprasad/" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://www.linkedin.com/in/aditiiprasad/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     LinkedIn
                   </a>
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                  <a href="https://github.com/aditiiprasad" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://github.com/aditiiprasad"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     GitHub
                   </a>
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                  <a href="https://leetcode.com/u/aditiiprasad/" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://leetcode.com/u/aditiiprasad/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Leetcode
                   </a>
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
-                  <a href="https://github.com/aditiiprasad" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://github.com/aditiiprasad"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Resume
                   </a>
                 </li>
@@ -143,14 +158,12 @@ const HomePageHeader = () => {
           </div>
 
           {/* Source Code Link */}
-          <a
-            href="https://github.com/aditiiprasad/tandoori-bot"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
             className="hover:underline font-bold"
+            onClick={() => navigate("/source-code")}
           >
             Source Code
-          </a>
+          </button>
         </div>
       </div>
 

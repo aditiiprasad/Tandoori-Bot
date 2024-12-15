@@ -12,7 +12,7 @@ export const generateRecipe = async () => {
    The recipe should include the following sections:
 - **Title**: The name of the dish (e.g., Butter Chicken, Chole Bhature, Biryani, etc.)
 - **Ingredients**: List the ingredients in a use -.
-- **Instructions**: Provide step-by-step instructions with step 1 ,step 2 etc , steps also in bold.
+- **Instructions**: Provide step-by-step instructions with step 1 ,step 2 etc ,and steps in bold 
 
 The dish should be **Indian** or **commonly available in India** with a variety of ingredients and cooking styles. It should reflect **regional diversity** (North Indian, South Indian, Punjabi, Gujarati, Bengali, etc.) with different preparation methods, flavors, and spices.
 
