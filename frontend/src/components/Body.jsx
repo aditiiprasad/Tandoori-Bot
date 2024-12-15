@@ -32,7 +32,7 @@ const Body = () => {
       </div>
 
       {/* Content Section */}
-      <div className="bg-gradient-to-r from-red-600 via-tandoori-red to-burnt-orange rounded-md shadow-md mb-5 p-6">
+      <div className=" bg-gradient-to-r from-golden-yellow via-yellow-500 to-burnt-orange rounded-md shadow-md mb-5 p-6">
         {activeTab === "ingredients" && (
           <IngredientsRecipe placeholder="Type ingredients, e.g., chicken, rice, spices..." />
         )}

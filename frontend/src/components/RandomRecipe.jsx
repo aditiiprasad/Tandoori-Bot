@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { generateRecipe } from "../lib/gemini";  // Import the generateRecipe function
-import botDp from '../assets/logodp.png'
+import { generateRecipe, generateAnswer } from "../lib/gemini"; // Import the generateAnswer function
+import botDp from '../assets/logodp.png';
+import ReactMarkdown from 'react-markdown'; // Import react-markdown for Markdown rendering
+import chatBackground from '../assets/bg2.webp';
+
 
 const RandomRecipe = ({ placeholder }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false); // To manage loading state
+  const [loading, setLoading] = useState(false);
+  const [currentRecipe, setCurrentRecipe] = useState(""); // Store the generated recipe
 
   const handleSendMessage = () => {
     if (input.trim()) {
@@ -13,23 +17,28 @@ const RandomRecipe = ({ placeholder }) => {
       setInput("");
 
       setTimeout(() => {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { user: false, text: "Launching Soon..." },
-        ]);
+        if (currentRecipe) {
+          handleQuery(input);  // Handle the user query using Gemini
+        } else {
+          setMessages((prevMessages) => [
+            ...prevMessages,
+            { user: false, text: "I don't have a recipe yet. Please generate one first!" },
+          ]);
+        }
       }, 1000);
     }
   };
 
   const handleGenerateRecipe = async () => {
-    setLoading(true);  // Set loading to true while fetching
+    setLoading(true); // Set loading to true while fetching
     setMessages([
       ...messages,
       { user: false, text: "Generating a random recipe..." },
     ]);
 
     try {
-      const recipe = await generateRecipe();  // Call the generateRecipe function
+      const recipe = await generateRecipe(); // Call the generateRecipe function
+      setCurrentRecipe(recipe); // Store the generated recipe
       setMessages((prevMessages) => [
         ...prevMessages,
         { user: false, text: recipe },
@@ -40,39 +49,64 @@ const RandomRecipe = ({ placeholder }) => {
         { user: false, text: "Failed to fetch a recipe. Please try again later." },
       ]);
     } finally {
-      setLoading(false);  // Set loading to false after completion
+      setLoading(false); // Set loading to false after completion
+    }
+  };
+
+  // Function to handle user queries about the recipe using Gemini
+  const handleQuery = async (query) => {
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { user: false, text: "Processing your query..." },
+    ]);
+
+    try {
+      const answer = await generateAnswer(query, currentRecipe); // Ask Gemini to answer based on the recipe
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { user: false, text: answer }, // Display the answer from Gemini
+      ]);
+    } catch (error) {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { user: false, text: "Sorry, I couldn't answer that question." },
+      ]);
     }
   };
 
   return (
     <div className="relative h-full">
-      <h2 className="text-2xl font-bold text-white">Khane mei kya banau?</h2>
-      <p className="text-white mt-2">
+      <h2 className="text-2xl font-bold text-deep-purple">Khane mei kya banau?</h2>
+      <p className="text-deep-purple mt-2">
         Tired of asking 'Khane mei kya banau?' Let AI decide! This Random Dish
         Generator will surprise you with a new recipe each day. No more
         decision fatigue—just delicious meals at your fingertips!
       </p>
+
       <div className="flex justify-center mt-4">
         <button
           onClick={handleGenerateRecipe}
-          className="bg-deep-purple text-white font-bold px-4 py-2 rounded-full hover:bg-light-purple transition"
-          disabled={loading}  // Disable the button while loading
+          className="bg-deep-purple text-white text-2xl font-bold px-4 py-2 rounded-full hover:bg-light-purple transition"
+          disabled={loading}
         >
           {loading ? "Loading..." : "Generate Recipe"}
         </button>
       </div>
-      <div className="mt-4 h-80 overflow-y-auto rounded-md p-4 bg-gradient-to-br from-golden-yellow to-orange-400 shadow-inner">
-        {/* Generate Recipe button at the top */}
-       
 
-        {/* Scrollable messages */}
-        {messages.map((message, index) => (
+      <div
+  className="mt-4 h-80 overflow-y-auto rounded-md p-4 shadow-inner"
+  style={{
+    backgroundImage: `url(${chatBackground})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  }}
+>        {messages.map((message, index) => (
           <div
             key={index}
             className={`mb-4 flex ${message.user ? "justify-end" : "justify-start"}`}
           >
             <div className="flex items-start">
-              {/* Show bot image for non-user messages */}
               {!message.user && (
                 <img
                   src={botDp} // Replace with actual bot image source
@@ -81,11 +115,9 @@ const RandomRecipe = ({ placeholder }) => {
                 />
               )}
               <div
-                className={`max-w-xs p-3 rounded-lg ${
-                  message.user ? "bg-light-beige text-black" : "bg-deep-purple text-white"
-                }`}
+                className={`max-w-xs p-3 rounded-lg ${message.user ? "bg-light-beige text-black" : "bg-deep-purple text-white"}`}
               >
-                {message.text}
+                <ReactMarkdown>{message.text}</ReactMarkdown>  {/* Render Markdown */}
               </div>
             </div>
           </div>
@@ -93,13 +125,14 @@ const RandomRecipe = ({ placeholder }) => {
       </div>
 
       <div className="mt-4 flex">
-        <input
-          type="text"
-          placeholder={placeholder}
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="flex-1 bg-gradient-to-br from-light-beige to-orange-200 rounded-full p-3 focus:outline-none focus:ring-2 mr-2 focus:ring-tandoori-red"
-        />
+      <input
+  type="text"
+  placeholder={placeholder}
+  value={input}
+  onChange={(e) => setInput(e.target.value)}
+  className="flex-1 bg-gradient-to-br from-light-beige to-orange-200 rounded-full p-3 focus:outline-none focus:ring-2 mr-2 focus:ring-deep-purple placeholder-deep-purple"
+/>
+
         <button
           onClick={handleSendMessage}
           className="bg-olive-green text-white font-extrabold px-6 py-3 rounded-full hover:bg-white hover:border-olive-green hover:text-olive-green transition border-none hover:border-2"
