@@ -122,12 +122,12 @@ const HomePageHeader = () => {
           </div>
 
           {/* Source Code Link */}
-          <button
+          <a
             className="hover:underline font-bold"
-            onClick={() => navigate("/source-code")}
+            href="https://github.com/aditiiprasad/Tandoori-Bot"
           >
             Source Code
-          </button>
+          </a>
         </div>
       </div>
 
