@@ -1,6 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate(); 
+
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
   return (
     <footer className="bg-gradient-to-br from-golden-yellow to-amber-500 text-white py-12 shadow-2xl">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -91,35 +99,35 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Column 4: Quick Links */} 
+        {/* Column 4: Quick Links */}
         <div>
           <h2 className="text-tandoori-red text-xl font-semibold">
             Quick Links
           </h2>
           <ul className="mt-2 space-y-2 text-base">
             <li>
-              <a
-                href="/recipe"
+              <button
+                onClick={() => handleNavigation("/cookfromstock")}
                 className="hover:text-burnt-orange hover:translate-x-1 transition-transform duration-300"
               >
                 Cook From Stock
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="/recipe"
+              <button
+                onClick={() => handleNavigation("/random")}
                 className="hover:text-burnt-orange hover:translate-x-1 transition-transform duration-300"
               >
                 Khane mei kya banau?
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="/"
+              <button
+                onClick={() => handleNavigation("/random")}
                 className="hover:text-burnt-orange hover:translate-x-1 transition-transform duration-300"
               >
-               Random Dhaba
-              </a>
+                Random Dhaba
+              </button>
             </li>
           </ul>
         </div>

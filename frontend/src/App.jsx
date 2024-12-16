@@ -10,8 +10,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/recipe" element={<RecipePage />} />
-        <Route path="/cfs" element={<CFS />} />
+        <Route path="/random" element={<RecipePage />} />
+        <Route path="/cookfromstock" element={<CFS />} />
         
       </Routes>
     </Router>

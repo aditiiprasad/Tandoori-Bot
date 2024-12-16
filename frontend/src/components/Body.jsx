@@ -17,7 +17,7 @@ const Body = () => {
           }`}
           onClick={() => setActiveTab("ingredients")}
         >
-          Recipe by Ingredients
+          Random Restaurants
         </button>
         <button
           className={`ml-4 px-8 py-4  text-xl font-bold rounded-full transition-all ${

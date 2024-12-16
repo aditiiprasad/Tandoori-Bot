@@ -72,43 +72,7 @@ const HomePageHeader = () => {
 
         {/* Right Side - Navigation */}
         <div className="flex gap-6 items-center">
-          {/* Services Dropdown */}
-          <div className="relative group">
-            <button className="hover:underline focus:outline-none font-bold">
-              Services
-            </button>
-            <div className="absolute top-full left-0 bg-white text-black shadow-md rounded-md mt-2 hidden group-hover:block group-focus:block w-64">
-              <ul>
-                <li
-                  className="px-4 py-3 flex justify-between items-center hover:bg-gray-200 cursor-pointer"
-                  onClick={() => navigate("/recipe")}
-                >
-                  <span>Cook From Stock</span>
-                  <span className="bg-gray-500 text-white text-xs font-semibold px-2 py-1 rounded-md">
-                    Unavailable
-                  </span>
-                </li>
-                <li
-                  className="px-4 py-3 flex justify-between items-center hover:bg-gray-200 cursor-pointer"
-                  onClick={() => navigate("/recipe")}
-                >
-                  <span>Random Dish</span>
-                  <span className="bg-olive-green text-white text-xs font-semibold px-2 py-1 rounded-md">
-                    Available
-                  </span>
-                </li>
-                <li
-                  className="px-4 py-3 flex justify-between items-center hover:bg-gray-200 cursor-pointer"
-                  onClick={() => navigate("/recipe")}
-                >
-                  <span>Random Restaurant</span>
-                  <span className="bg-gray-500 text-white text-xs font-semibold px-2 py-1 rounded-md">
-                    Unavailable
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
+    
 
           {/* About the Developer Dropdown */}
           <div className="relative group">

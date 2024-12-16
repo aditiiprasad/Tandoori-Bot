@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { generateRecipe, generateAnswer } from "../lib/gemini"; // Import the generateAnswer function
+import { generateRecipe, generateAnswer } from "../lib/gemini"; 
 import botDp from '../assets/logodp.png';
-import ReactMarkdown from 'react-markdown'; // Import react-markdown for Markdown rendering
+import ReactMarkdown from 'react-markdown'; 
 import chatBackground from '../assets/chatbg.jpeg';
 
 
@@ -9,7 +9,7 @@ const RandomRecipe = ({ placeholder }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [currentRecipe, setCurrentRecipe] = useState(""); // Store the generated recipe
+  const [currentRecipe, setCurrentRecipe] = useState(""); 
 
   const handleSendMessage = () => {
     if (input.trim()) {
@@ -18,7 +18,7 @@ const RandomRecipe = ({ placeholder }) => {
 
       setTimeout(() => {
         if (currentRecipe) {
-          handleQuery(input);  // Handle the user query using Gemini
+          handleQuery(input);  
         } else {
           setMessages((prevMessages) => [
             ...prevMessages,
@@ -30,15 +30,15 @@ const RandomRecipe = ({ placeholder }) => {
   };
 
   const handleGenerateRecipe = async () => {
-    setLoading(true); // Set loading to true while fetching
+    setLoading(true); 
     setMessages([
       ...messages,
       { user: false, text: "Generating a random recipe..." },
     ]);
 
     try {
-      const recipe = await generateRecipe(); // Call the generateRecipe function
-      setCurrentRecipe(recipe); // Store the generated recipe
+      const recipe = await generateRecipe(); 
+      setCurrentRecipe(recipe); 
       setMessages((prevMessages) => [
         ...prevMessages,
         { user: false, text: recipe },
@@ -49,11 +49,11 @@ const RandomRecipe = ({ placeholder }) => {
         { user: false, text: "Failed to fetch a recipe. Please try again later." },
       ]);
     } finally {
-      setLoading(false); // Set loading to false after completion
+      setLoading(false); 
     }
   };
 
-  // Function to handle user queries about the recipe using Gemini
+  
   const handleQuery = async (query) => {
     setMessages((prevMessages) => [
       ...prevMessages,
@@ -61,10 +61,10 @@ const RandomRecipe = ({ placeholder }) => {
     ]);
 
     try {
-      const answer = await generateAnswer(query, currentRecipe); // Ask Gemini to answer based on the recipe
+      const answer = await generateAnswer(query, currentRecipe); 
       setMessages((prevMessages) => [
         ...prevMessages,
-        { user: false, text: answer }, // Display the answer from Gemini
+        { user: false, text: answer }, 
       ]);
     } catch (error) {
       setMessages((prevMessages) => [
@@ -109,7 +109,7 @@ const RandomRecipe = ({ placeholder }) => {
             <div className="flex items-start">
               {!message.user && (
                 <img
-                  src={botDp} // Replace with actual bot image source
+                  src={botDp} 
                   alt="Bot Profile"
                   className="w-10 h-10 rounded-full mr-3"
                 />
@@ -117,7 +117,7 @@ const RandomRecipe = ({ placeholder }) => {
               <div
                 className={`max-w-xs p-3 rounded-lg ${message.user ? "bg-light-beige text-black" : "bg-deep-purple bg-opacity-70 text-white"}`}
               >
-                <ReactMarkdown>{message.text}</ReactMarkdown>  {/* Render Markdown */}
+                <ReactMarkdown>{message.text}</ReactMarkdown>  
               </div>
             </div>
           </div>

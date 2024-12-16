@@ -6,13 +6,12 @@ const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [quickLinksDropdownOpen, setQuickLinksDropdownOpen] = useState(false);
 
-  // Toggle dropdown visibility
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
   const toggleQuickLinksDropdown = () => setQuickLinksDropdownOpen(!quickLinksDropdownOpen);
 
 
   return (
-    <header className="bg-gradient-to-br from-red-700 to-tandoori-red text-white py-4 shadow-lg">
+    <header className="bg-gradient-to-br from-red-700 to-tandoori-red  text-white py-4 shadow-lg">
       <div className="container mx-auto flex flex-wrap items-center justify-between px-6">
         {/* Logo and Title */}
         <a

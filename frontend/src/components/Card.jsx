@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Card = ({ image, name, description, status }) => {
+const Card = ({ image, name, description, status, link }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
     if (status === "Explore") {
-      navigate("/recipe"); 
+      navigate(link); 
     } else {
       alert("This service is launching soon!"); 
     }
@@ -19,16 +19,13 @@ const Card = ({ image, name, description, status }) => {
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-xl font-semibold text-gray-800">{name}</h3>
           <span
-         className="bg-gradient-to-br from-deep-purple to-pink-900 text-white text-base font-semibold rounded-full px-2 py-1"
-         style={{
-         boxShadow: "2px 2px 6px rgba(0, 0, 0, 0.7), -2px -2px 6px rgba(255, 255, 255, 0.3)",
-    
-        
-           }}
+            className="bg-gradient-to-br from-deep-purple to-pink-900 text-white text-base font-semibold rounded-full px-2 py-1"
+            style={{
+              boxShadow: "2px 2px 6px rgba(0, 0, 0, 0.7), -2px -2px 6px rgba(255, 255, 255, 0.3)",
+            }}
           >
-         {status === "available" ? "Uses AI" : "Uses AI"}
-         </span>
-
+            {status === "available" ? "Uses AI" : "Uses AI"}
+          </span>
         </div>
         <p className="text-gray-600 mb-4">{description}</p>
         <button
@@ -38,7 +35,7 @@ const Card = ({ image, name, description, status }) => {
               ? "bg-olive-green text-white hover:bg-golden-yellow"
               : "bg-gray-400 text-gray-200 cursor-not-allowed"
           }`}
-          disabled={status !== "Explore"} // Disable button if not available
+          disabled={status !== "Explore"} 
         >
           {status === "Explore" ? "Explore" : "Launching Soon"}
         </button>
