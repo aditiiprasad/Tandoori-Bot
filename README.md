@@ -4,9 +4,12 @@ Tandoori Bot is your AI-powered kitchen buddy! Whether it's turning your leftove
 
 ---
 
+<a href="https://tandoori-bot.vercel.app/"><img src="frontend/src/assets/logo.png" height="100" />  </a> <b>Click this icon to view Project<b>
+
+
 ## 📸 Preview
 
-![Tandoori Bot Screenshot](./screenshots/tandoori-bot-homepage.png)  
+![Tandoori Bot Screenshot](./screenshots/ss.gif)  
 *Get a glimpse of Tandoori Bot's sleek and user-friendly interface!*
 
 ---
